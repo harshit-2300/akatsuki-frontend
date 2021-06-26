@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
+import SwipeableTemporaryDrawer from './components/Drawer';
+import InteractiveList from './components/List';
+import Chips from './components/Chip';
+import { TextField } from '@material-ui/core';
 function App() {
+  const [page, setPage] = React.useState("scheduled");
+  
+  if(page=="scheduled")
+  {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+    
           Learn React
-        </a>
+        <SwipeableTemporaryDrawer pag="setPage" /> 
+        <InteractiveList /> 
+        <Chips />
+        <Chips />
+        <TextField />
       </header>
     </div>
   );
+  }
+  else
+  {
+    return (
+      <div className="App">
+        <header className="App-header">
+      
+           Not Learn React
+          <SwipeableTemporaryDrawer /> 
+          <InteractiveList />
+          <Chips /> 
+
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;

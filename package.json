@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/harshit-2300/akatsuki-frontend/issues"
   },
-  "homepage": "https://github.com/harshit-2300/akatsuki-frontend#readme"
+  "homepage": "https://github.com/harshit-2300/akatsuki-frontend#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.11.4"
+  }
 }
