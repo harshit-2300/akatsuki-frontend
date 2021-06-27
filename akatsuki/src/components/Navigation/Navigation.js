@@ -1,14 +1,18 @@
-import React from 'react';
+import Drawer from '../Drawer';
+import React,{ useState } from 'react';
+
 
 const Navigation = ({onRouteChange, isSignedIn}) => {
 	if(isSignedIn){
 		return (
-			<nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+			<nav style={{display: 'flex', justifyContent: 'space-between'}}>
+				<div className='f3 link dim black underline pa3 pointer'><Drawer onRouteChange={onRouteChange} /></div>
+				
 				<p 
 				 onClick={() => {
 				 	onRouteChange('signout')
 				 }} 
-				 className='f3 link dim black underline pa3 pointer'
+				 className='f3 link dim black underline pa1 pointer'
 	            >Sign Out</p>
 				{/*we cannot do onRouteChange('home') as it will be called and executed, but we want it to be called
 	                  whenever onChange happens. So we wrap it in an arrow function*/}

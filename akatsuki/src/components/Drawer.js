@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SwipeableTemporaryDrawer({setPage}) {
+export default function SwipeableTemporaryDrawer({onRouteChange}) {
     
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -50,8 +50,9 @@ export default function SwipeableTemporaryDrawer({setPage}) {
     >
       <List>
         {['Scheduled', 'Sent'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <ScheduleRoundedIcon /> : <PresentToAllRoundedIcon />}</ListItemIcon>
+          <ListItem onClick={()=>{onRouteChange(text)}} button key={text}>
+            <ListItemIcon >
+              {index % 2 === 0 ? <ScheduleRoundedIcon /> : <PresentToAllRoundedIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -59,7 +60,7 @@ export default function SwipeableTemporaryDrawer({setPage}) {
       <Divider />
       <List>
         {['Compose',].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem onClick={()=>{onRouteChange(text)}} button key={text}>
             <ListItemIcon>{ <AddBoxRoundedIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>

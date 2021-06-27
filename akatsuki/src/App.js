@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Navigation from './components/Navigation/Navigation'
 import Register from './components/Register/Register';
 import SignIn from './components/SignIn/SignIn';
+import List from './components/List';
+import Compose from './components/Compose/Compose';
+
 import './App.css';
 
 
@@ -40,10 +43,15 @@ class App extends Component {
     if(route === 'signout') {
       this.setState(initState);
     }
-    else if(route === 'home') {
+    else if(route === 'home' ) {
       this.setState({isSignedIn: true});
     }
     console.log(this.state);
+    if(route === 'Scheduled')
+    {
+      this.setState({route: 'home'});
+    }
+    else
     this.setState({route: route});
   }
 
@@ -51,18 +59,31 @@ class App extends Component {
     const {isSignedIn, route} = this.state;
   return (
     <div className="App">
+    
       <Navigation 
         onRouteChange={this.onRouteChange} 
         isSignedIn={isSignedIn}
       />
       { route === 'home'
         ? <div>
-            <h1>Hello</h1>
+            <List />
+
           </div>
         : (
             route === 'signin'
             ? <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
-            : <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+            :(
+              route === 'Sent'?
+              <List />
+              :(
+                 route === 'Compose'
+                 ? <Compose />
+                 :<Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+              )
+
+              
+
+            )  
           )
       }
     </div>
