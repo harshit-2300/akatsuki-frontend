@@ -10,54 +10,29 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
 const columns = [
-  { id: 'name', label: 'Subject', minWidth: 170 },
-  { id: 'code', label: 'Schedule-Type', minWidth: 50 },
+  { id: 'email', label: 'Email', minWidth: 170 },
+  { id: 'subject', label: 'Subject', minWidth: 50 },
   
   {
-    id: 'density',
-    label: 'Date',
+    id: 'schedule',
+    label: 'Schedule',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toFixed(2),
   },
 ];
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
+function createData(email, subject, schedule) {
+  return { email, subject, schedule };
 }
 
 const rows = [
-  createData('India is s', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
-  createData('India is s', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
+  createData('harshit@gmail.com', 'Anniversary', 'daily'),
+  createData('ferb@gmail.com', 'Holiday', 'weeky'),
+  createData('phineas@gmail.com', 'Merry Christmas', 'daily'),
+  createData('stacy@gmail.com', 'Happy Holi', 'weeky'),
+  createData('john@gmail.com', 'Important Meeting', 'daily'),
+  createData('bob@gmail.com', 'Dinner', 'weekly')
 ];
 
 const useStyles = makeStyles({
