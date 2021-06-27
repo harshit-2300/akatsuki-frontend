@@ -4,7 +4,6 @@ import Register from './components/Register/Register';
 import SignIn from './components/SignIn/SignIn';
 import List from './components/List';
 import Compose from './components/Compose/Compose';
-
 import './App.css';
 
 
