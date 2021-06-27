@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Register extends React.Component {
 
@@ -28,23 +29,23 @@ class Register extends React.Component {
     // console.log(this.state);
     // console.log(this.props);
     // fetch by default does GET request
-    fetch('https://glacial-brook-72345.herokuapp.com/register', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-        name: this.state.name
-      })
-    })
-    .then(resp => resp.json())
-    .then(user => {
-      if(user.id) {
-        console.log('user registered');
-        this.props.loadUser(user);
-        this.props.onRouteChange('home');
+    const signUp = async (e) => {
+      e.preventDefault();
+      try {
+        const resp = await axios.post('https:loclahost:5000/api/users/signup',
+          {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+          });
+        // eslint-disable-next-line no-undef
+        localStorage.setItem('token', resp.data.token);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
       }
-    })
+    };
+    console.log(signUp);
   }
 
   render() {
