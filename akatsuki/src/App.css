@@ -2,11 +2,13 @@
   width: 100vw;
   height: 100vh;
   margin: 0px;
+  text-align: center;
 }
 
 body{
   margin: 0px;
   padding: 0px;
   background-color:rgb(213, 253, 231);
-  
+  display: flex;
+  justify-content: center;
 }
